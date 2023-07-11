@@ -134,6 +134,11 @@
 <body>
 
     <div class="loginBox"> <img class="user" src="https://i.ibb.co/yVGxFPR/2.png" height="100px" width="100px">
+        @if (session('status'))
+            <div class="alert alert-danger">
+                {{ session('message') }}
+            </div>
+        @endif
         <h3>Masukkan Akun Anda</h3>
         <form class="login100-form validate-form" action="" method="post">
             @csrf
@@ -149,16 +154,6 @@
             Belum Punya Akun?
             <a class="txt1" href="{{ route('register') }}" style="color: #59238F;">Daftar Disini
             </a>
-
-        @if (session('status'))
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                {{ session('message') }}
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">x</span>
-                </button>
-            </div>
-        @endif
-
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"

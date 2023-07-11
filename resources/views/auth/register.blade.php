@@ -10,6 +10,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         body {
             margin: 0;
@@ -70,7 +71,7 @@
             border: none;
             border-bottom: 2px solid #262626;
             outline: none;
-            height: 40px;
+            height: 30px;
             color: #fff;
             background: transparent;
             font-size: 16px;
@@ -103,8 +104,8 @@
         .registerBox button[type="submit"] {
             border: none;
             outline: none;
-            height: 40px;
-            font-size: 16px;
+            height: 30px;
+            font-size: 13px;
             background: #59238F;
             color: #fff;
             border-radius: 20px;
@@ -113,7 +114,7 @@
 
         .registerBox a {
             color: #262626;
-            font-size: 14px;
+            font-size: 12px;
             font-weight: bold;
             text-decoration: none;
             text-align: center;
@@ -139,71 +140,78 @@
             @csrf
             <div class="inputBox">
                 <div class="wrap-input100 validate-input" data-validate="Masukkan Nama dengan Benar!">
-                    <input class="input100" id="username" type="text" name="username" placeholder="Username" value="{{ old('name') }}" required>
-                        <span class="focus-input100" data-placeholder="&#xf207;"></span>
+                    <input class="input100" id="username" type="text" name="username" placeholder="Username"
+                        value="{{ old('username') }}" required>
+                    <span class="focus-input100" data-placeholder="&#xf207;"></span>
                     @if ($errors->has('username'))
                         <p class="text-danger">{{ $errors->first('username') }}</p>
                     @endif
                 </div>
-            
-            <div class="wrap-input100 validate-input" data-validate="Masukkan Password dengan Benar!">
-                <input class="input100" id="password" type="password" name="password" placeholder="Password" required>
-                <span class="focus-input100" data-placeholder="&#xf191;"></span>
-                @if ($errors->has('password'))
-                    <p class="text-danger">{{ $errors->first('password') }}</p>
-                @endif
-            </div>
-            <div class="wrap-input100 validate-input" data-validate="Masukkan Password dengan Benar!">
-                <input class="input100" type="password" name="password_confirmation" placeholder="Masukkan Ulang Password Anda">
-                <span class="focus-input100" data-placeholder="&#xf191;"></span>
-                @if ($errors->has('password_confirmation'))
-                    <p class="text-danger">{{ $errors->first('password_confirmation') }}</p>
-                @endif
-            </div>
 
-            <div class="wrap-input100 validate-input" data-validate="Masukkan Nomor HP dengan Benar!">
-                <input class="input100" id="phone" type="text" name="phone" placeholder="No Hp" value="{{ old('phone') }}">
-                <span class="focus-input100" data-placeholder="&#xf207;"></span>
-                @if ($errors->has('phone'))
-                    <p class="text-danger">{{ $errors->first('phone') }}</p>
-                @endif
-            </div>
-
-            <div class="wrap-input100 validate-input" data-validate="Masukkan Alamat Dengan Benar!">
-                <input class="input100 form-control" id="addres" type="text" name="addres" placeholder="Alamat" value="{{ old('addres') }}" required></input>
-                <span class="focus-input100" data-placeholder="&#xf207;"></span>
-                @if ($errors->has('addres'))
-                    <p class="text-danger">{{ $errors->first('addres') }}</p>
-                @endif
-            </div>
-            
-        </div>
-
-        <div class="container-login100-form-btn mt-3">
-            <button class="btn form-control login100-form-btn" type="submit">Daftar</button>
+                <div class="wrap-input100 validate-input" data-validate="Masukkan Password dengan Benar!">
+                    <input class="input100" id="password" type="password" name="password" placeholder="Password"
+                        required>
+                    <span class="focus-input100" data-placeholder="&#xf191;"></span>
+                    @if ($errors->has('password'))
+                        <p class="text-danger">{{ $errors->first('password') }}</p>
+                    @endif
                 </div>
-                    
-        </form>
-        <div class="text-center p-t-90 txt1">
-            Sudah Punya Akun?
-            <a href="{{ route('login') }}" class="txt1" style="color: #59238F;">Masuk Disini</a>
-        </div>
 
-        @if (session('status'))
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                {{ session('message') }}
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">x</span>
-                </button>
+                <div class="wrap-input100 validate-input" data-validate="Masukkan Password dengan Benar!">
+                    <input class="input100" type="password" name="password_confirmation"
+                        placeholder="Masukkan Ulang Password Anda" required>
+                    <span class="focus-input100" data-placeholder="&#xf191;"></span>
+                    @if ($errors->has('password_confirmation'))
+                        <p class="text-danger">{{ $errors->first('password_confirmation') }}</p>
+                    @endif
+                </div>
+
+                <div class="wrap-input100 validate-input" data-validate="Masukkan Nomor HP dengan Benar!">
+                    <input class="input100" id="phone" type="text" name="phone" placeholder="No Hp"
+                        value="{{ old('phone') }}">
+                    <span class="focus-input100" data-placeholder="&#xf207;"></span>
+                    @if ($errors->has('phone'))
+                        <p class="text-danger">{{ $errors->first('phone') }}</p>
+                    @endif
+                </div>
+
+                <div class="wrap-input100 validate-input" data-validate="Masukkan Alamat Dengan Benar!">
+                    <input class="input100 form-control" id="addres" type="text" name="addres"
+                        placeholder="Alamat" value="{{ old('addres') }}" required></input>
+                    <span class="focus-input100" data-placeholder="&#xf207;"></span>
+                    @if ($errors->has('addres'))
+                        <p class="text-danger">{{ $errors->first('addres') }}</p>
+                    @endif
+                </div>
+            </div>
+
+            <div class="container-login100-form-btn mt-3">
+                <button class="btn form-control login100-form-btn" type="submit">Daftar</button>
+            </div>
+        </form>
+        <div class="text-center mt-2">
+            Sudah Punya Akun?
+            <a href="{{ route('login') }}" class="txt1">Masuk Disini</a>
+        </div>
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
             </div>
         @endif
 
+        @if (session('status'))
+            <div class="alert alert-success">
+                {{ session('message') }}
+            </div>
+        @endif
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
     </script>
-
 </body>
-
 </html>

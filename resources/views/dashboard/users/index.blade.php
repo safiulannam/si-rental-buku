@@ -1,8 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Buku')
-
-
+@section('title', 'User')
 
 
 

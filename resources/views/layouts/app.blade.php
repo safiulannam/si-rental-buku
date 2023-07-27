@@ -6,9 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0", user-scalable=no, minimum-scale=1.0,
         maximum-scale=1.0>
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Rental Buku | @yield('title')</title>
-
     <meta name="description" content="" />
+    <meta name="keywords" content="">
+
+    <title>Rental Buku | @yield('title')</title>
 
     <link rel="preconnect" href="{{ url('https://fonts.googleapis.com') }}" />
     <link rel="preconnect" href="{{ url('https://fonts.gstatic.com') }}" crossorigin />
@@ -16,9 +17,16 @@
         href="{{ url('https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap') }}"
         rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
+    @include('includes.style')
 
-    @vite('resources/css/app.css')
+    @stack('addon-style')
+
+    <!-- Custom CSS -->
+    <!-- / Custom CSS -->
+
+    @include('includes.script')
+
+
 </head>
 
 <body>
@@ -67,31 +75,9 @@
         </div>
     </div>
 
-
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.0/dist/alpine.min.js" defer></script>
-    <script>
-        const setup = () => {
-            const getTheme = () => {
-                if (window.localStorage.getItem('dark')) {
-                    return JSON.parse(window.localStorage.getItem('dark'))
-                }
-                return !!window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
-            }
-
-            const setTheme = (value) => {
-                window.localStorage.setItem('dark', value)
-            }
-
-            return {
-                loading: true,
-                isDark: getTheme(),
-                toggleTheme() {
-                    this.isDark = !this.isDark
-                    setTheme(this.isDark)
-                },
-            }
-        }
-    </script>
+    <!-- Core scripts -->
+    @include('includes.core-script')
+    @stack('addon-script')
 </body>
 
 </html>

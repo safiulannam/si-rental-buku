@@ -499,7 +499,7 @@
     <!-- ./Task Summaries -->
 
     <!-- Client Table -->
-    <div class="mt-4 mx-4">
+    {{-- <div class="mt-4 mx-4">
         <div class="w-full overflow-hidden rounded-lg shadow-xs">
             <div class="w-full overflow-x-auto">
                 <table class="w-full">
@@ -698,7 +698,7 @@
                 </span>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- ./Client Table -->
 
     <!-- Contact Form -->
